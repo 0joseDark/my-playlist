@@ -2,7 +2,8 @@ import os
 import vlc
 import tkinter as tk
 from tkinter import filedialog, messagebox
-import youtube_dl
+from tkinter import simpledialog  # Usado para abrir URL
+import yt_dlp  # Substitui youtube_dl por yt_dlp
 import xml.etree.ElementTree as ET
 
 # Caminho completo para a libvlc.dll (ajuste conforme o seu sistema)
@@ -73,7 +74,7 @@ def tocar_stream():
     if playlist:
         stream_url = playlist[0]  # Usa o primeiro URL da lista
         try:
-            with youtube_dl.YoutubeDL() as ydl:
+            with yt_dlp.YoutubeDL() as ydl:
                 info_dict = ydl.extract_info(stream_url, download=False)
                 video_url = info_dict['url']
                 player.set_mrl(video_url)
@@ -91,7 +92,7 @@ def escolher_ficheiro():
 
 # Função para abrir uma URL e adicionar ao XML
 def abrir_url():
-    url = filedialog.askstring("Abrir URL", "Digite o URL:")
+    url = simpledialog.askstring("Abrir URL", "Digite o URL:")  # Usar simpledialog.askstring para abrir URL
     if url:
         adicionar_stream(url)
 
@@ -104,10 +105,10 @@ def abrir_ficheiro_e_tocar():
 
 # Função para abrir uma URL diretamente e tocar
 def abrir_url_e_tocar():
-    url = filedialog.askstring("Abrir URL", "Digite o URL:")
+    url = simpledialog.askstring("Abrir URL", "Digite o URL:")
     if url:
         try:
-            with youtube_dl.YoutubeDL() as ydl:
+            with yt_dlp.YoutubeDL() as ydl:
                 info_dict = ydl.extract_info(url, download=False)
                 video_url = info_dict['url']
                 player.set_mrl(video_url)

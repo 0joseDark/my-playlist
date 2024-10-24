@@ -5,4 +5,5 @@
 # pip install tkinter
 # pip install yt-dlp
 for DLL https://www.videolan.org/vlc/
+- https://ffmpeg.org/download.html
 
