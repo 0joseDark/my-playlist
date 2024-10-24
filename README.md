@@ -1,2 +1,8 @@
-# my-playlist
- my playlist youtube
+# my-playlist youtube
+
+# pip install python-vlc
+# pip install youtube_dl
+# pip install tkinter
+# pip install yt-dlp
+for DLL https://www.videolan.org/vlc/
+
