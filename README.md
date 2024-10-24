@@ -7,5 +7,6 @@
 for DLL https://www.videolan.org/vlc/
 - https://ffmpeg.org/download.html
 # pip install python-vlc pywebview
+# pip install cefpython3
 
 
